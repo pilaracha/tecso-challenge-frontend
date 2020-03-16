@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <form *ngIf="account">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Account number</label>
+              <input type="text" class="form-control" value={{account.accountNumber}} id="exampleInputEmail1" readonly />  
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Account currency</label>
+                <input type="text" class="form-control" value={{account.accountType.accountTypeDescription}} id="exampleInputEmail1" readonly />  
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Account balance</label>
+              <div class="input-group">
+                <div class="input-group-addon">{{account.accountType.accountTypeCurrency}}</div>
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Account balance" value={{account.accountBalance}} readonly>
+              </div>
+            </div>
+            <button (click)="listMovements(account.id)" type="submit" class="btn btn-warning"><i class="fa fa-list-ul" style="margin-right: 5px;"></i>Movements</button>
+            <button (click)="addMovement(account.id)"type="submit" class="btn btn-warning" style="margin-left: 5px;"><i class="fa fa-plus" style="margin-right: 5px;"></i>Add movement</button>
+          </form>
+    </div>
+</div>

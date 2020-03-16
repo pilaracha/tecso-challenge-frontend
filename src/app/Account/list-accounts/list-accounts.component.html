@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row"  *ngIf="showMessage">
+        <div class="col-xs-12">
+          <p class="alert {{alertType}}">
+              {{message}}
+          </p>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Currency</th>
+            <th>Balance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="myAccounts.length > 0">
+          <tr *ngFor="let account of myAccounts">
+            <td>{{account.accountNumber}}</td>
+            <td>{{account.accountType.accountTypeDescription}}</td>
+            <td>{{account.accountType.accountTypeCurrency}} {{account.accountBalance}}</td>
+            <td>
+                <button (click)="viewAccount(account.id)" class="btn btn-warning actions" ><i class="fa fa-info"></i></button>
+                <button (click)="deleteAccount(account)" class="btn btn-danger actions" ><i class="fa fa-trash"></i></button>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,24 @@
+<div class="container text-center">
+    <div class="row"  *ngIf="error">
+      <div class="col-xs-12">
+        <p class="alert alert-danger">
+            {{error}}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <div class="form-group">
+              <label for="accountCurrency">Account currency</label>
+              <select class="form-control rounded-0" id="accountCurrency" name="accountCurrency"
+              [(ngModel)]="accountTypeSelected" required>
+                <option value="" disabled>Select an option</option>
+                <option *ngFor="let accountType of accountTypes" [ngValue]="accountType">{{accountType.accountTypeCurrency}} - {{accountType.accountTypeDescription}} Account</option>
+              </select>
+            </div>
+            <button (click)="save()" type="submit" class="btn btn-success">Create account</button>
+            <button (click)="cancel()" type="submit" class="btn btn-danger" style="margin-left: 5px;">Cancel</button>
+          </form>
+    </div>
+    
+</div>
